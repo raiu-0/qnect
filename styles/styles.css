@@ -28,7 +28,9 @@ body {
 input[type=text],
 input[type=password],
 input[type=date],
+textarea,
 button {
+    font-family: "Poppins", sans-serif;
     height: 2rem;
     border-radius: 5px;
     border: 1px solid var(--clr-border);
@@ -81,6 +83,14 @@ h4 {
 nav {
     background-color: var(--clr-bg);
     justify-content: flex-start !important;
+}
+
+.button-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
 }
 
 .left-nav {
@@ -214,6 +224,7 @@ nav {
     transition: 0.3s;
     user-select: none;
     font-weight: bold;
+    position: relative;
 }
 
 .menu-option:hover {
@@ -230,24 +241,10 @@ nav {
     filter: brightness(0.9);
 }
 
-.post {
-    width: 100%;
-    justify-content: start;
-    align-items: start;
-}
-
-.post .content .content-title {
-    width: fit-content;
-    border-radius: 10px 10px 0 0;
-    background-color: var(--clr-primary);
-    color: var(--clr-bg);
-    padding: 0.5rem 1.5rem;
-}
-
-.post .content .content-desc {
-    width: fit-content;
-    border-radius: 0 10px 10px 10px;
-    background-color: var(--clr-bg-light);
-    color: var(--clr-secondary);
-    padding: 2rem;
+.content-frame{
+    flex-grow: 1;
+    background-color: var(--clr-bg-semi-light);
+    padding: 3rem;
+    overflow: auto;
+    gap: 2rem;
 }

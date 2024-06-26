@@ -1,8 +1,23 @@
-#content-frame{
-    background-color: var(--clr-bg-semi-light);
-    padding: 3rem;
-    overflow: auto;
-    gap: 2rem;
+.post {
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+}
+
+.post .content .content-title {
+    width: fit-content;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--clr-primary);
+    color: var(--clr-bg);
+    padding: 0.5rem 1.5rem;
+}
+
+.post .content .content-desc {
+    width: fit-content;
+    border-radius: 0 10px 10px 10px;
+    background-color: var(--clr-bg-light);
+    color: var(--clr-secondary);
+    padding: 2rem;
 }
 
 .post .comment {

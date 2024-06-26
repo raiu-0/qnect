@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QNect</title>
+    <link rel="icon" type="image/x-icon" href="images/QNect_1.ico">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/ask_question.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="flex-row nav wrapper">
+        <div class="left-nav flex-row">
+            <img src="images/QNect_1.png" alt="Logo" class="logo">
+            <div class="title">QNect</div>
+        </div>
+        <div class="right-nav">
+            <div class="username">random_username</div>
+            <img src="images/person-icon.png" alt="profile-icon" class="logo">
+        </div>
+    </nav>
+    <div class="main-frame flex-row">
+        <div class="flex-col wrapper menu-frame">
+            <div class="menu flex-col">
+                <div class="menu-option">
+                    Home
+                    <a href="home.html"><span class="button-link"></span></a>
+                </div>
+                <div class="menu-option menu-option-selected">
+                    Ask Question
+                </div>
+                <div class="menu-option">
+                    Friends
+                </div>
+                <div class="menu-option">
+                    Notifications
+                </div>
+                <div class="menu-option">
+                    QNECT with a User
+                </div>
+                <div class="menu-option">
+                    Pending Queries
+                </div>
+            </div>
+        </div>
+        <div class="flex-col content-frame">
+            <div class="question flex-col">
+                <h2 class="question-header">ASK A QUESTION!</h2>
+                <div class="question-content grid">
+                    <div class="question-input-label">Subject:</div>
+                    <input type="text" class="question-input" placeholder="Enter question subject/tags...">
+                    <div class="question-input-label">Header:</div>
+                    <input type="text" class="question-input" placeholder="Enter question header...">
+                    <div class="question-input-label">Description:</div>
+                    <textarea class="question-input input-desc" placeholder="Enter question details..." rows="50"></textarea>
+                    <div class="submit-question">
+                        <button type="button" class="submit-question-btn">SUBMIT
+                            <a href="matches.html"><span class="button-link"></span></a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

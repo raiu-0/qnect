@@ -1,0 +1,43 @@
+#login-frame {
+    grid-template-columns: 60% 40%;
+    align-items: center;
+}
+
+#left-frame{
+    height: auto;
+    border-right: 2px solid var(--clr-secondary);
+    padding: 4rem;
+}
+
+#desc-header{
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+#desc-logo {
+    height: 5rem;
+    margin-right: 1rem;
+}
+
+#desc-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#login {
+    width: 20rem;
+    padding: 3rem;
+    height: 100%;
+    gap: 0;
+}
+
+#login-btn {
+    width: 100%;
+    background-color: var(--clr-bg-light);
+    color: var(--clr-secondary);
+    font-weight: bold;
+}
+
+#login-link {
+    width: 100%;
+}

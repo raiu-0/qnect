@@ -1,0 +1,34 @@
+#content-frame{
+    background-color: var(--clr-bg-semi-light);
+    padding: 3rem;
+    overflow: auto;
+    gap: 2rem;
+}
+
+.post .comment {
+    padding: 0.2rem 1rem;
+    font-size: 0.75rem;
+    background-color: var(--clr-secondary);
+    color: var(--clr-bg);
+    border-radius: 0 5px 5px 5px ;
+    align-items: center;
+}
+
+.comment-input {
+    height: 1rem !important;
+    border: 0 !important;
+    font-size: 0.75rem;
+}
+
+.comment-input:focus {
+    border: 0 !important;
+    outline: 0;
+}
+
+.post .content .content-desc{
+    border-radius: 0 5px 5px 0 !important;
+}
+
+.post .content .author {
+    margin-bottom: 0.2rem;
+}

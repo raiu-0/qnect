@@ -1,0 +1,253 @@
+:root {
+    --clr-bg: #000000;
+    --clr-bg-semi-light: #0f0f0f;
+    --clr-bg-light: #181818;
+    --clr-bg-lighter: #34342f;
+    --clr-primary: #fff600;
+    --clr-secondary: #ffffff;
+    --clr-date-background: #ffffff;
+    --clr-date-placeholder: #757575;
+    --clr-border: #dddfe2;
+    --clr-error: #d60b0b;
+}
+
+html,
+body {
+    background-color: var(--clr-bg-light);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: var(--clr-secondary);
+}
+
+input[type=text],
+input[type=password],
+input[type=date],
+button {
+    height: 2rem;
+    border-radius: 5px;
+    border: 1px solid var(--clr-border);
+    padding: 0.25rem 0.5rem;
+}
+
+input[type=date]:not(.has-value):focus {
+    color: var(--clr-date-placeholder) !important;
+}
+
+input[type=date]:not(.has-value) {
+    position: relative;
+    color: var(--clr-date-background);
+}
+
+input[type=date]:not(.has-value):before {
+    bottom: calc(50% - 0.5rem);
+    font-family: sans-serif;
+    position: absolute;
+    color: var(--clr-date-placeholder);
+    content: attr(placeholder);
+}
+
+input[type=date]:not(.has-value):focus:before {
+    content: '';
+}
+
+button {
+    transition: filter 0.2s;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+hr {
+    width: 100%;
+    border-width: 1px 0 0 0;
+    opacity: 25%;
+    margin: 0.25rem 0 0.75rem 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0 !important;
+}
+
+nav {
+    background-color: var(--clr-bg);
+    justify-content: flex-start !important;
+}
+
+.left-nav {
+    flex-grow: 1;
+    align-items: center;
+}
+
+.right-nav {
+    width: 30%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+}
+
+.col-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: var(--clr-secondary);
+    box-shadow: 0 0 10px var(--clr-bg);
+    color: var(--clr-bg);
+}
+
+.title {
+    --title-size: 2rem;
+    color: var(--clr-secondary);
+    font-size: var(--title-size);
+    font-weight: bold;
+    position: relative;
+    user-select: none;
+    transition: transform 0.2s;
+    margin: 0;
+}
+
+.title::before,
+.title::after {
+    --frame-width: calc(var(--title-size) * 0.15);
+    --frame-size: calc(var(--title-size) * 0.3);
+    content: '';
+    width: var(--frame-size);
+    height: var(--frame-size);
+    position: absolute;
+    border: solid var(--clr-primary);
+    transition: transform 1s;
+}
+
+.title::before {
+    top: 0;
+    left: calc(-1 * (var(--frame-size) + var(--frame-width)));
+    border-width: var(--frame-width) 0 0 var(--frame-width);
+}
+
+.title::after {
+    bottom: 0;
+    border-width: 0 var(--frame-width) var(--frame-width) 0;
+}
+
+.title:hover {
+    transform: scale(1.1);
+}
+
+.title:hover::before {
+    transform: translate(-50%, -50%);
+}
+
+.title:hover::after {
+    transform: translate(50%, 50%);
+}
+
+.logo {
+    height: 2.5rem;
+    margin-right: 2rem;
+    user-select: none;
+}
+
+.main-frame {
+    min-height: 0;
+    flex-grow: 1;
+}
+
+.error-msg {
+    color: var(--clr-error);
+    font-size: 0.7rem;
+    padding: 0.3rem;
+}
+
+.username {
+    margin-right: 0.5rem;
+}
+
+.menu-frame {
+    flex-shrink: 0;
+    width: 20%;
+    padding: 2rem;
+    justify-content: start;
+}
+
+.menu {
+    width: 100%;
+    gap: 0.3rem;
+    justify-content: start;
+    align-items: center;
+}
+
+.menu-option {
+    width: 100%;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: 0.3s;
+    user-select: none;
+    font-weight: bold;
+}
+
+.menu-option:hover {
+    background-color: var(--clr-bg-lighter);
+}
+
+.menu-option-selected {
+    color: var(--clr-bg);
+    background-color: var(--clr-primary) !important;
+    transition: 0.3s;
+}
+
+.menu-option-selected:hover {
+    filter: brightness(0.9);
+}
+
+.post {
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+}
+
+.post .content .content-title {
+    width: fit-content;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--clr-primary);
+    color: var(--clr-bg);
+    padding: 0.5rem 1.5rem;
+}
+
+.post .content .content-desc {
+    width: fit-content;
+    border-radius: 0 10px 10px 10px;
+    background-color: var(--clr-bg-light);
+    color: var(--clr-secondary);
+    padding: 2rem;
+}

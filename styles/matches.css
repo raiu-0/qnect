@@ -1,8 +1,13 @@
 .result {
+    position: relative;
     background-color: var(--clr-bg-light);
     padding: 2rem;
     border-radius: 10px;
     transition: filter 0.3s;
+}
+
+.result-active {
+    background-color: var(--clr-active-status);
 }
 
 .result:hover {

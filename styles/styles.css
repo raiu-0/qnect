@@ -4,6 +4,7 @@
     --clr-bg-light: #181818;
     --clr-bg-lighter: #34342f;
     --clr-primary: #fff600;
+    --clr-active-status: #033e18;
     --clr-secondary: #ffffff;
     --clr-date-background: #ffffff;
     --clr-date-placeholder: #757575;
@@ -234,7 +235,7 @@ nav {
 .menu-option-selected {
     color: var(--clr-bg);
     background-color: var(--clr-primary) !important;
-    transition: 0.3s;
+    transition: filter 0.3s !important;
 }
 
 .menu-option-selected:hover {

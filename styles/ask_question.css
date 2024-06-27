@@ -46,6 +46,7 @@
 }
 
 .submit-question-btn {
+    position: relative;
     background-color: var(--clr-primary);
     font-weight: bold;
     width: 100%;

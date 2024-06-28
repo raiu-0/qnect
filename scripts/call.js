@@ -18,6 +18,11 @@ const ICEservers = {
     ]
 }
 
+let constraints = {
+    video: true,
+    audio: true
+};
+
 async function init() {
     client = AgoraRTM.createInstance(APP_ID);
     await client.login({ uid, token });
@@ -29,7 +34,7 @@ async function init() {
     channel.on('MemberLeft', handle_user_left);
     client.on('MessageFromPeer', handle_message_from_peer);
 
-    local_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+    local_stream = await navigator.mediaDevices.getUserMedia(constraints);
     document.getElementById('user-1').srcObject = local_stream;
 
 }

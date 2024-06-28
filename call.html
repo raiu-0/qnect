@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>QNect</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" type="image/x-icon" href="images/QNect_1.ico">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/matches.css">
+    <link rel="stylesheet" href="styles/call.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -26,9 +27,16 @@
             <img src="images/person-icon.png" alt="profile-icon" class="logo">
         </div>
     </nav>
-    <div class="main-frame flex-row">
-        
+    <div id="com-frame" class="main-frame flex-row">
+        <div id="call-frame" class="flex-col">
+            <video id="user-1" class="video-player" autoplay playsinline></video>
+            <video id="user-2" class="video-player" autoplay playsinline></video>
+        </div>
+        <div id="chat-frame">
+
+        </div>
     </div>
 </body>
-
+<script src="scripts/agora-rtm-sdk-1.5.1.js"></script>
+<script type="text/javascript" src="scripts/call.js"></script>
 </html>

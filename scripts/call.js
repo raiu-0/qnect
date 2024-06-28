@@ -36,7 +36,6 @@ async function init() {
 
     local_stream = await navigator.mediaDevices.getUserMedia(constraints);
     document.getElementById('user-1').srcObject = local_stream;
-
 }
 
 async function handle_user_joined(MemberId) {
@@ -52,17 +51,21 @@ async function leave_channel() {
     await channel.logout();
 }
 
+let ICEcandidates = [];
+
 async function handle_message_from_peer(message, MemberId) {
     message = JSON.parse(message.text);
-    if(message.type === 'offer'){
+    if (message.type === 'offer') {
         create_answer(MemberId, message.offer);
     }
     if (message.type === 'answer') {
         add_answer(message.answer);
     }
-    if(message.type === 'candidate') {
-        if(peer_connection) {
+    if (message.type === 'candidate') {
+        if (peer_connection && peer_connection.currentRemoteDescription) {
             peer_connection.addIceCandidate(message.candidate);
+        } else {
+            ICEcandidates.push(message.candidate);
         }
     }
 }
@@ -73,7 +76,7 @@ async function create_peer_connection(MemberId) {
     document.getElementById('user-2').srcObject = remote_stream;
 
     if (!local_stream) {
-        local_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        local_stream = await navigator.mediaDevices.getUserMedia(constraints);
         document.getElementById('user-1').srcObject = local_stream;
     }
 
@@ -99,23 +102,27 @@ async function create_offer(MemberId) {
     let offer = await peer_connection.createOffer();
     await peer_connection.setLocalDescription(offer);
 
-    client.sendMessageToPeer({ text: JSON.stringify({'type': 'offer', 'offer': offer}) }, MemberId);
+    client.sendMessageToPeer({ text: JSON.stringify({ 'type': 'offer', 'offer': offer }) }, MemberId);
 }
 
 async function create_answer(MemberId, offer) {
     await create_peer_connection(MemberId);
-    
+
     await peer_connection.setRemoteDescription(offer);
 
     let answer = await peer_connection.createAnswer();
     await peer_connection.setLocalDescription(answer);
-    client.sendMessageToPeer({ text: JSON.stringify({'type': 'answer', 'answer': answer}) }, MemberId);
+    client.sendMessageToPeer({ text: JSON.stringify({ 'type': 'answer', 'answer': answer }) }, MemberId);
 }
 
-async function add_answer(answer){
-    if(!peer_connection.currentRemoteDescription){
-        peer_connection.setRemoteDescription(answer);
+async function add_answer(answer) {
+    if (!peer_connection.currentRemoteDescription) {
+        await peer_connection.setRemoteDescription(answer);
+        ICEcandidates.forEach((candidate) => {
+            peer_connection.addIceCandidate(candidate);
+        })
     }
+    ICEcandidates = [];
 }
 
 init();

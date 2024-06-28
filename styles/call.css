@@ -1,9 +1,7 @@
-#com-frame {
-}
-
 #call-frame {
     width: 70%;
     position: relative;
+    flex-shrink: 0;
 }
 
 #chat-frame {
@@ -31,4 +29,57 @@
     flex-grow: 1;
     width: 100%;
     z-index: 0;
+}
+
+.chat-history {
+    padding: 2rem 0;
+    flex-grow: 1;
+    gap: 1.5rem;
+}
+
+.chat-frame {
+    height: fit-content;
+    gap: 0.5rem;
+}
+
+.chat-others {
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+}
+
+.chat-self {
+    justify-content: end;
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+}
+
+.chat-profile {
+    flex-shrink: 0;
+    top: calc(50% - 1.25rem);
+    background-color: var(--clr-bg);
+    border: 3px solid var(--clr-secondary);
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.chat-img {
+    width: 100%;
+}
+
+.chat-content {
+    color: var(--clr-bg);
+    font-size: 0.9rem;
+    align-self: center;
+    padding: 0.6rem;
+    border-radius: 20px;
+}
+
+.chat-others>.chat-content {
+    background-color: var(--clr-secondary);
+}
+
+.chat-self>.chat-content {
+    background-color: var(--clr-primary);
 }

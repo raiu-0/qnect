@@ -32,11 +32,46 @@
             <video id="user-1" class="video-player" autoplay playsinline muted="muted"></video>
             <video id="user-2" class="video-player" autoplay playsinline></video>
         </div>
-        <div id="chat-frame">
-
+        <div id="chat-frame" class="flex-col">
+            <div class="chat-history flex-col">
+                <div class="chat-frame chat-others flex-row">
+                    <div class="chat-profile">
+                        <img src="images/person-icon.png" class="chat-img">
+                    </div>
+                    <div class="chat-content">
+                        hello
+                    </div>
+                </div>
+                <div class="chat-frame chat-self flex-row">
+                    <div class="chat-content">
+                        hi
+                    </div>
+                    <div class="chat-profile">
+                        <img src="images/person-icon.png" class="chat-img">
+                    </div>
+                </div>
+                <div class="chat-frame chat-others flex-row">
+                    <div class="chat-profile">
+                        <img src="images/person-icon.png" class="chat-img">
+                    </div>
+                    <div class="chat-content">
+                        can you open your mic?
+                    </div>
+                </div>
+                <div class="chat-frame chat-others flex-row">
+                    <div class="chat-profile">
+                        <img src="images/person-icon.png" class="chat-img">
+                    </div>
+                    <div class="chat-content">
+                        i can't hear you
+                    </div>
+                </div>
+            </div>
+            <input type="text" placeholder="Type message here...">
         </div>
     </div>
 </body>
 <script src="scripts/agora-rtm-sdk-1.5.1.js"></script>
 <script type="text/javascript" src="scripts/call.js"></script>
+
 </html>

@@ -62,10 +62,8 @@ async function handle_message_from_peer(message, MemberId) {
         add_answer(message.answer);
     }
     if (message.type === 'candidate') {
-        if (peer_connection && peer_connection.currentRemoteDescription) {
+        if (peer_connection) {
             peer_connection.addIceCandidate(message.candidate);
-        } else {
-            ICEcandidates.push(message.candidate);
         }
     }
 }
@@ -90,19 +88,19 @@ async function create_peer_connection(MemberId) {
         })
     };
 
-    peer_connection.onicecandidate = async (event) => {
-        if (event.candidate) {
-            client.sendMessageToPeer({ text: JSON.stringify({ 'type': 'candidate', 'candidate': event.candidate }) }, MemberId);
-        }
-    }
+    
 }
 
 async function create_offer(MemberId) {
     await create_peer_connection(MemberId);
     let offer = await peer_connection.createOffer();
     await peer_connection.setLocalDescription(offer);
-
     client.sendMessageToPeer({ text: JSON.stringify({ 'type': 'offer', 'offer': offer }) }, MemberId);
+    peer_connection.onicecandidate = async (event) => {
+        if (event.candidate) {
+            client.sendMessageToPeer({ text: JSON.stringify({ 'type': 'candidate', 'candidate': event.candidate }) }, MemberId);
+        }
+    }
 }
 
 async function create_answer(MemberId, offer) {
@@ -118,11 +116,7 @@ async function create_answer(MemberId, offer) {
 async function add_answer(answer) {
     if (!peer_connection.currentRemoteDescription) {
         await peer_connection.setRemoteDescription(answer);
-        ICEcandidates.forEach((candidate) => {
-            peer_connection.addIceCandidate(candidate);
-        })
     }
-    ICEcandidates = [];
 }
 
 init();
